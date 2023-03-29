@@ -5,18 +5,19 @@ import (
 	"log"
 	"os"
 
-	ProcessExcelFile "github.com/soudengwu/SortProvider"
-) 
+	ExcelReader "github.com/soudengwu/SortProvider/Reader"
+)
 
 func main() {
-	if len(os.Args); != 3 {
-		log.Fatalf("Usage: %s input.xlsx output.xlsx", os.Arga[0])
+	if len(os.Args) != 4 {
+		log.Fatalf("Usage: %s input.xlsx output.xlsx noMxOutput.xlsx", os.Args[0])
 	}
 
 	inputFile := os.Args[1]
 	outputFile := os.Args[2]
+	noMxOutputFile := os.Args[3]
 
-	if err := ExcelReader.ProcessExcelFile(inputFile, outputFile); err != nil{
+	if err := ExcelReader.ProcessExcelFile(inputFile, outputFile, noMxOutputFile); err != nil {
 		log.Fatalf("Error processing Excel file: %v", err)
 	}
 
